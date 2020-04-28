@@ -1,0 +1,8 @@
+<svg>
+  <defs>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="import" href="/mnt/sysassets/widgets_common.gui" />
+    <!-- Import segmentBar GUI -->
+    <link rel="import" href="segmentBar.gui" />
+  </defs>
+</svg>

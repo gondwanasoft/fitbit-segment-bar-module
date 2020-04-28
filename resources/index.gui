@@ -1,0 +1,15 @@
+<svg>
+   
+  <!--
+  <use id="segBarRight" href="#segmentBar10" x="0" y="30%" fill="white" />  
+  <use id="segBarLeft"  href="#segmentBar10" x="0" y="60%" fill="white" />  
+  <use id="segBarUp"    href="#segmentBar10" x="70%" y="0%" fill="white" />
+  <use id="segBarDown"  href="#segmentBar10" x="70%" y="50%" fill="white" />
+  -->
+  
+  <use id="segSteps"  href="#segmentBar10" x="2%"      y="2%"  fill="white" />
+  <use id="segPower"  href="#segmentBar10" x="95%-100" y="5% " fill="white" />
+  <use id="segActive" href="#segmentBar10" x="2%"      y="92%" fill="white" />
+  <use id="segDist"   href="#segmentBar10" x="95%-40" y="95%-110" fill="white" />
+  
+</svg>
