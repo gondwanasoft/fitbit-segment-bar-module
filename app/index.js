@@ -1,19 +1,26 @@
 import document from 'document'
 import { charger, battery } from "power";
-import {segmentBar} from './segmentBar.js' 
+import { memory } from "system"   // TODO 4 del all memory
+import {segmentBar} from '../resources/segment-bar/segmentBar.js'
 
 //let segBarLeft = new segmentBar({id:'segBarLeft', direction:'left', imagePrefix:'diagLeft', spacing:-7, color:'yellow'});
 
+let memAfter
+let memBefore = memory.js.used
 let segSteps   = new segmentBar({id:'segSteps',  direction:'right', imagePrefix:'arrowRight', spacing:-5, color:'red'});
+memAfter = memory.js.used; console.log(`mem used = ${memAfter-memBefore}`); memBefore = memAfter
 let segPower   = new segmentBar({id:'segPower',  direction:'right', imagePrefix:'stripey', spacing:0, color:'cyan'});
+memAfter = memory.js.used; console.log(`mem used = ${memAfter-memBefore}`); memBefore = memAfter
 let segActive  = new segmentBar({id:'segActive', direction:'right', imagePrefix:'hearts', spacing:2, color:'red'});
+memAfter = memory.js.used; console.log(`mem used = ${memAfter-memBefore}`); memBefore = memAfter
 let segDist    = new segmentBar({id:'segDist',   direction:'up', imagePrefix:'roundRectUp', spacing:2, color:'yellow'});
+memAfter = memory.js.used; console.log(`mem used = ${memAfter-memBefore}`); memBefore = memAfter
 
 // Detect battery level change and update immediately
 battery.addEventListener("change", (charger, evt) => {
 
   let val = battery.chargeLevel;
-  
+
   /*
   if (val < 20){
     segPower.color = 'red'
@@ -23,15 +30,15 @@ battery.addEventListener("change", (charger, evt) => {
     segPower.color = 'green'
   }
   */
-  
-  
+
+
   segSteps.value  = val;
   segPower.value  = val;
   segActive.value = val;
   segDist.value   = val;
-  
+
   //segBarLeft.value  = battery.chargeLevel;
-  
+
 });
 
   /*
@@ -93,3 +100,5 @@ segActive.seg[6].style.fill = '#FF6666';
 segActive.seg[7].style.fill = '#FF7777';
 segActive.seg[8].style.fill = '#FF8888';
 segActive.seg[9].style.fill = '#FF9999';
+
+// TODO 3 compare with Sergio's
