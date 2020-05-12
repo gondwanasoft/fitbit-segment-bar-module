@@ -1,19 +1,19 @@
 import document from 'document'
 import { charger, battery } from "power";
 import { memory } from "system"   // TODO 4 del all memory
-import {segmentBar} from '../resources/segment-bar/segmentBar.js'
+import segmentBar from '../resources/segment-bar/segmentBar.js'
 
 //let segBarLeft = new segmentBar({id:'segBarLeft', direction:'left', imagePrefix:'diagLeft', spacing:-7, color:'yellow'});
 
 let memAfter
 let memBefore = memory.js.used
-let segSteps   = new segmentBar({id:'segSteps',  direction:'right', imagePrefix:'arrowRight', spacing:-5, color:'red'});
+let segSteps   = segmentBar({id:'segSteps',  direction:'right', imagePrefix:'arrowRight', spacing:-5, color:'red'});
 memAfter = memory.js.used; console.log(`mem used = ${memAfter-memBefore}`); memBefore = memAfter
-let segPower   = new segmentBar({id:'segPower',  direction:'right', imagePrefix:'stripey', spacing:0, color:'cyan'});
+let segPower   = segmentBar({id:'segPower',  direction:'right', imagePrefix:'stripey', spacing:0, color:'cyan'});
 memAfter = memory.js.used; console.log(`mem used = ${memAfter-memBefore}`); memBefore = memAfter
-let segActive  = new segmentBar({id:'segActive', direction:'right', imagePrefix:'hearts', spacing:2, color:'red'});
+let segActive  = segmentBar({id:'segActive', direction:'right', imagePrefix:'hearts', spacing:2, color:'red'});
 memAfter = memory.js.used; console.log(`mem used = ${memAfter-memBefore}`); memBefore = memAfter
-let segDist    = new segmentBar({id:'segDist',   direction:'up', imagePrefix:'roundRectUp', spacing:2, color:'yellow'});
+let segDist    = segmentBar({id:'segDist',   direction:'up', imagePrefix:'roundRectUp', spacing:2, color:'yellow'});
 memAfter = memory.js.used; console.log(`mem used = ${memAfter-memBefore}`); memBefore = memAfter
 
 // Detect battery level change and update immediately

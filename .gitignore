@@ -106,3 +106,8 @@ dist
 # Custom
 .zip
 build/
+
+# Backup
+backup.bat
+Backup_Excludes.txt
+backup/

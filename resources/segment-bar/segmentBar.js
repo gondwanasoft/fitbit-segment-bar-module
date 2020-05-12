@@ -1,71 +1,71 @@
 import document from 'document'
 import * as fs from "fs";
 
-export function segmentBar({ id, direction, value, maxvalue, imagePrefix, spacing, color, visibility}) {
+export default ({id, direction, value, maxvalue, imagePrefix, spacing, color, visibility}) => {
 
-  this.root         = typeof id === 'string' ? document.getElementById(id) : id
-  this.style        = this.root.style
-  this.seg          = this.root.getElementsByClassName('seg')
-  this._numsegs     = this.seg.length
-  this._direction   = direction || 'right'
-  this._imagePrefix = `segment-bar/segments/${imagePrefix}/`
-  this._value       = value || 0
-  this._maxvalue    = maxvalue || 100
-  this._segval      = this._maxvalue / this._numsegs
-  this._spacing     = spacing || 0
-  this._color       = color || 'white'
-  this._dimensions  = getImageDimensions(this._imagePrefix + "/0.png.txi");
-  this._visibility  = visibility || 'visible';
+  const root         = typeof id === 'string' ? document.getElementById(id) : id
+  const style        = root.style
+  const _seg          = root.getElementsByClassName('seg')
+  const _numsegs     = _seg.length
+  const _direction   = direction || 'right'
+  const _imagePrefix = `segment-bar/segments/${imagePrefix}/`
+  let _value         = value || 0
+  const _maxvalue    = maxvalue || 100
+  const _segval      = _maxvalue / _numsegs
+  const _spacing     = spacing || 0
+  const _color       = color || 'white'
+  const _dimensions  = getImageDimensions(_imagePrefix + "/0.png.txi")
+  const _visibility  = visibility || 'visible'
 
-  this.reposition = () =>{
+  const reposition = () => {
 
     // Declare loop variables before loop for better performance
     let i=0;
-    let max=this._numsegs;
+    let max=_numsegs;
     let currSeg;
 
     // Loop through all the segments
     for (i=0;i<max;i++){
 
       // Grab the current segment handle
-      currSeg = this.seg[i];
+      currSeg = _seg[i];
 
       // Set image width and height
-      currSeg.width = this._dimensions.width;
-      currSeg.height = this._dimensions.height;
+      currSeg.width = _dimensions.width;
+      currSeg.height = _dimensions.height;
 
       // Set the segment position
-      if (this._direction === 'right'){
-        currSeg.x = i * (this._dimensions.width + this._spacing);
-      } else if (this._direction === 'left'){
-        currSeg.x = (max -1 -i) * (this._dimensions.width + this._spacing);
-      } else if (this._direction === 'up'){
-        currSeg.y = (max -1 -i) * (this._dimensions.height + this._spacing);
+      if (_direction === 'right'){
+        currSeg.x = i * (_dimensions.width + _spacing);
+      } else if (_direction === 'left'){
+        currSeg.x = (max -1 -i) * (_dimensions.width + _spacing);
+      } else if (_direction === 'up'){
+        currSeg.y = (max -1 -i) * (_dimensions.height + _spacing);
       } else {
-        currSeg.y = i * (this._dimensions.height + this._spacing);
+        currSeg.y = i * (_dimensions.height + _spacing);
       }
 
       // Set the color
-      currSeg.style.fill = this._color;
+      currSeg.style.fill = _color;
 
       // Set the visibility
-      currSeg.style.visibility = this._visibility;
+      currSeg.style.visibility = _visibility;
 
     }
 
-    this.redraw();
+    redraw();
 
   }
 
-  this.redraw = () => {
+  const redraw = () => {
 
     // Declare loop variables before loop for better performance
     let i=0;
-    let max=this._numsegs;
+    let max=_numsegs;
     let currSeg;
 
-    //let val = Math.floor(this._value/max);
-    let val = Math.floor(this._value/this._segval)
+    //let val = Math.floor(_value/max);
+    let val = Math.floor(_value/_segval)
 
     //console.log("VAL: " + val)
 
@@ -73,41 +73,39 @@ export function segmentBar({ id, direction, value, maxvalue, imagePrefix, spacin
     for (i=0;i<max;i++){
 
       // Grab the current segment handle
-      currSeg = this.seg[i];
+      currSeg = _seg[i];
 
 
       // Set the individual segment images based on value
       if (i < val){
         // This segment needs to be filled
-        currSeg.href = `${this._imagePrefix}${this._segval}.png`;
+        currSeg.href = `${_imagePrefix}${_segval}.png`;
       } else if (i === val){
         // This is the currently filling segment - choose correct image using remainder
-        currSeg.href = `${this._imagePrefix}${this._value%this._segval}.png`;
+        currSeg.href = `${_imagePrefix}${_value%_segval}.png`;
       } else {
         // This segment needs to be empty
-        currSeg.href = `${this._imagePrefix}0.png`;
+        currSeg.href = `${_imagePrefix}0.png`;
       }
 
     }
 
   }
 
-  // Getter & Setter for VALUE
-  Object.defineProperty(this, 'value', {
-    get : () => {
-      return this._value
-    },
-    set : (val) => {
-      //console.log("Setting VALUE to " + val);
-      if(this._value === val)
-        return
-      this._value = Math.floor(val)
-      this.redraw()
-    }
-  })
+  const _setValue = (val) => {
+    if(_value === val)
+      return
+    _value = Math.floor(val)
+    redraw()
+  }
 
-  this.reposition();
+  reposition()
 
+  return {
+    get seg() {return _seg},
+    get value() {return _value},
+    set value(val) {_setValue(val)}
+  }
 }
 
 
