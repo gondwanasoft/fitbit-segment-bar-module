@@ -3,6 +3,6 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="import" href="/mnt/sysassets/widgets_common.gui" />
     <!-- Import segmentBar GUI -->
-    <link rel="import" href="segment-bar/segmentBar.gui" />
+    <link rel="import" href="segment-bar/index.gui" />
   </defs>
 </svg>
