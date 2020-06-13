@@ -1,7 +1,7 @@
 import document from 'document'
 import { charger, battery } from "power";
 import { memory } from "system"   // TODO 4 del all memory
-import segmentBar from '../resources/segment-bar/segmentBar.js'
+import segmentBar from '../resources/segment-bar'
 
 //let segBarLeft = new segmentBar({id:'segBarLeft', direction:'left', imagePrefix:'diagLeft', spacing:-7, color:'yellow'});
 
