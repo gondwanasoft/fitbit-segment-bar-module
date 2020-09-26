@@ -1,5 +1,5 @@
 import document from 'document'
-import * as fs from "fs";
+import * as fs from 'fs'
 
 export default ({id, direction, value, maxvalue, imagePrefix, spacing, color, visibility}) => {
 
@@ -92,24 +92,33 @@ export default ({id, direction, value, maxvalue, imagePrefix, spacing, color, vi
 
   }
 
-  const _setValue = (val) => {
-    if(_value === val)
-      return
-    _value = Math.floor(val)
-    redraw()
+  Object.defineProperty(root, 'value', {  // It may be dangerous to use the property name 'value' because it's already defined on GraphicsElement.
+    get: function() {
+      return _value
+    },
+    set: function(newValue) {
+      if(_value === newValue)
+        return
+      _value = Math.floor(newValue)
+      redraw()
+    }
+  })
+
+  root.setFills = fills => {
+    // fills: array of fill strings (one per segment).
+    // This should probably be implemented as a setter, but we'll use a function just to demonstrate how to do so.
+    fills.forEach((fill, index) => {
+      _seg[index].style.fill = fill   // this could do with some range-checking
+    })
   }
 
   reposition()
 
-  return {
-    get seg() {return _seg},
-    get value() {return _value},
-    set value(val) {_setValue(val)}
-  }
+  return root
 }
 
 
-function getImageDimensions(path){
+function getImageDimensions(path) {
 
   let file = fs.openSync(`/mnt/assets/resources/${path}`, "r");
   let buffer = new ArrayBuffer(8);
