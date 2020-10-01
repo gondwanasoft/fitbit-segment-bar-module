@@ -1,5 +1,4 @@
-import document from 'document'
-import { charger, battery } from 'power'
+import { battery } from 'power'
 import segmentBar from '../resources/segment-bar'
 
 let segSteps   = segmentBar({id:'segSteps',  direction:'right', imagePrefix:'arrowRight',  spacing:-5, color:'red'})
@@ -12,7 +11,7 @@ segDist.setFills(['#FF0000', '#FF3800', '#FF7100', '#FFAA00', '#FFE200', '#E2FF0
 segActive.setFills(['#FF0000', '#FF1010', '#FF2121', '#FF3232', '#FF4444', '#FF5555', '#FF6666', '#FF7777', '#FF8888', '#FF9999'])
 
 // Detect battery level change and update immediately
-battery.addEventListener('change', (charger, evt) => {
+battery.addEventListener('change', () => {
 
   let val = battery.chargeLevel
 
@@ -26,6 +25,5 @@ battery.addEventListener('change', (charger, evt) => {
   segDist.value   = val
 
 })
-
 
 // TODO 3 convert to SDK 4.2

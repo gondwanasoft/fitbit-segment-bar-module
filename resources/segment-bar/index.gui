@@ -1,5 +1,10 @@
 <defs>
-    <symbol id="segmentBar10">
+  <mask id="barMask">
+    <image id="barMaskImg" x="0" y="0" width="48" height="48" href="segment-bar/mask.png" />
+  </mask>
+
+  <symbol id="segmentBar10">
+    <svg mask="#barMask">
       <image href="" x="0" y="0" class="seg" fill="inherit"/>
       <image href="" x="0" y="0" class="seg" fill="inherit"/>
       <image href="" x="0" y="0" class="seg" fill="inherit"/>
@@ -10,5 +15,6 @@
       <image href="" x="0" y="0" class="seg" fill="inherit"/>
       <image href="" x="0" y="0" class="seg" fill="inherit"/>
       <image href="" x="0" y="0" class="seg" fill="inherit"/>
-    </symbol>
-  </defs>
+    </svg>
+  </symbol>
+</defs>
