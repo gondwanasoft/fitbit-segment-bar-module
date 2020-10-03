@@ -1,10 +1,12 @@
 <defs>
   <mask id="barMask">
-    <image id="barMaskImg" x="0" y="0" width="48" height="48" href="segment-bar/mask.png" />
+    <image id="barMaskImage" x="0" y="0" width="150" height="100" display="none" />
+    <rect id="barMaskRect" fill="white" />
   </mask>
 
   <symbol id="segmentBar10">
-    <svg mask="#barMask">
+    <!--<svg mask="#barMask">--> <!-- TODO 3 work out how to disable mask -->
+    <svg id="maskGroup" mask="#barMask">
       <image href="" x="0" y="0" class="seg" fill="inherit"/>
       <image href="" x="0" y="0" class="seg" fill="inherit"/>
       <image href="" x="0" y="0" class="seg" fill="inherit"/>

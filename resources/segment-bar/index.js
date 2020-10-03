@@ -1,7 +1,7 @@
 import document from 'document'
 import * as fs from 'fs'
 
-export default ({id, direction, value, maxValue, imagePrefix, spacing, color, visibility}) => { // TODO 3 verify that all args are used
+export default ({id, direction, value, maxValue, imagePrefix, spacing, color, visibility, mask}) => { // TODO 3 verify that all args are used
 
   // The constants and variables declared below are not returned, so they're not directly accessible outside of the widget.
 
@@ -62,6 +62,18 @@ export default ({id, direction, value, maxValue, imagePrefix, spacing, color, vi
       // Set the visibility
       currSeg.style.visibility = _visibility
 
+    }
+
+    //console.log(`${_root.getElementById('barMaskRect').width}`)
+    const barMaskRect = _root.getElementById('barMaskRect')
+    if (mask) {
+      const barMaskImage = _root.getElementById('barMaskImage')
+      barMaskImage.href = `segment-bar/masks/${mask}.png`
+      barMaskImage.style.display = 'inline'
+      barMaskRect.style.display = 'none'
+    } else {    // no mask
+      barMaskRect.width = _direction === 'left' || _direction === 'right' ? _dimensions.width * 10 + _spacing * 9 : _dimensions.width
+      barMaskRect.height = _direction === 'left' || _direction === 'right' ? _dimensions.height : _dimensions.height * 10 + _spacing * 9
     }
 
     _redraw()

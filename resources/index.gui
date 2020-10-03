@@ -4,5 +4,6 @@
   <use id="segPower"  href="#segmentBar10" x="95%-100" y="5% "     fill="white" />
   <use id="segActive" href="#segmentBar10" x="2%"      y="92%"     fill="white" />
   <use id="segDist"   href="#segmentBar10" x="95%-40"  y="95%-110" fill="white" />
+  <use id="segHeart"  href="#segmentBar10" x="50%-75"  y="50%-50"  fill="white" />
 
 </svg>
