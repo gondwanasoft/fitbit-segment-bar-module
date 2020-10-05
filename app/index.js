@@ -1,11 +1,11 @@
 import { battery } from 'power'
 import segmentBar from '../resources/segment-bar'
 
-let segSteps   = segmentBar({id:'segSteps',  direction:'right', imagePrefix:'arrowRight',  spacing:-5, color:'red'})
-let segPower   = segmentBar({id:'segPower',  direction:'right', imagePrefix:'stripey',     spacing:0,  color:'cyan'})
-let segActive  = segmentBar({id:'segActive', direction:'right', imagePrefix:'hearts',      spacing:2,  color:'red'})
-let segDist    = segmentBar({id:'segDist',   direction:'up',    imagePrefix:'roundRectUp', spacing:2,  color:'yellow'})
-let segHeart   = segmentBar({id:'segHeart',  direction:'up',    imagePrefix:'mask',        spacing:0,  color:'green', mask:'heart'})
+let segSteps   = segmentBar({id:'segSteps',  direction:'right', imagePrefix:'arrowRight',  spacing:-5})
+let segPower   = segmentBar({id:'segPower',  direction:'right', imagePrefix:'stripey',     spacing:0, color:'cyan'})
+let segActive  = segmentBar({id:'segActive', direction:'right', imagePrefix:'hearts',      spacing:2})
+let segDist    = segmentBar({id:'segDist',   direction:'up',    imagePrefix:'roundRectUp', spacing:2})
+let segHeart   = segmentBar({id:'segHeart',  direction:'up',    imagePrefix:'mask',        spacing:0, mask:'heart'})
 
 segSteps.setFills(['#FF0000', '#FF3800', '#FF7100', '#FFAA00', '#FFE200', '#E2FF00', '#A9FF00', '#71FF00', '#38FF00', '#00FF00'])
 segDist.setFills(['#FF0000', '#FF3800', '#FF7100', '#FFAA00', '#FFE200', '#E2FF00', '#A9FF00', '#71FF00', '#38FF00', '#00FF00'])
@@ -28,4 +28,4 @@ battery.addEventListener('change', () => {
   segHeart.value = val
 })
 
-// TODO 3 convert to SDK 4.2
+// TODO 3 convert to SDK 5

@@ -146,6 +146,7 @@ export default ({id, direction, value, maxValue, imagePrefix, spacing, color, vi
 
 }
 
+// This helper function need not be included in the export default function because it doesn't need access to any of that function's members:
 
 function getImageDimensions(path) {
 
@@ -158,5 +159,3 @@ function getImageDimensions(path) {
   return {width: values[0], height: values[1]};
 
 }
-
-// TODO 3 mask? See Zoned Out

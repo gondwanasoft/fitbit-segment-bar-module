@@ -1,22 +1,21 @@
 <defs>
   <mask id="barMask">
     <image id="barMaskImage" x="0" y="0" width="150" height="100" display="none" />
-    <rect id="barMaskRect" fill="white" />
+    <rect id="barMaskRect" fill="white" />    <!-- TODO used to display whole segment-bar when no mask is required -->
   </mask>
 
   <symbol id="segmentBar10">
-    <!--<svg mask="#barMask">--> <!-- TODO 3 work out how to disable mask -->
     <svg id="maskGroup" mask="#barMask">
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
-      <image href="" x="0" y="0" class="seg" fill="inherit"/>
+      <image class="seg" />
+      <image class="seg" />
+      <image class="seg" />
+      <image class="seg" />
+      <image class="seg" />
+      <image class="seg" />
+      <image class="seg" />
+      <image class="seg" />
+      <image class="seg" />
+      <image class="seg" />
     </svg>
   </symbol>
 </defs>
