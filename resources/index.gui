@@ -1,6 +1,6 @@
 <svg>
 
-  <use id="segSteps"  href="#segmentBar10" x="2%"      y="2%" />  <!-- TODO 2 why fill=white? -->
+  <use id="segSteps"  href="#segmentBar10" x="2%"      y="2%" />
   <use id="segPower"  href="#segmentBar10" x="95%-100" y="5%" />
   <use id="segActive" href="#segmentBar10" x="2%"      y="92%" />
   <use id="segDist"   href="#segmentBar10" x="95%-40"  y="95%-110" />

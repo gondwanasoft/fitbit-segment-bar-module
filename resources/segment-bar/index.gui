@@ -1,7 +1,7 @@
 <defs>
   <mask id="barMask">
     <image id="barMaskImage" x="0" y="0" width="150" height="100" display="none" />
-    <rect id="barMaskRect" fill="white" />    <!-- TODO used to display whole segment-bar when no mask is required -->
+    <rect id="barMaskRect" fill="white" />    <!-- used to display whole segment-bar when no mask is required -->
   </mask>
 
   <symbol id="segmentBar10">

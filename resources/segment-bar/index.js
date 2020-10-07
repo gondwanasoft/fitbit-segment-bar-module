@@ -1,7 +1,7 @@
 import document from 'document'
 import * as fs from 'fs'
 
-export default ({id, direction, value, maxValue, imagePrefix, spacing, color, visibility, mask}) => { // TODO 3 verify that all args are used
+export default ({id, direction, value, maxValue, imagePrefix, spacing, color, visibility, mask}) => {
 
   // The constants and variables declared below are not returned, so they're not directly accessible outside of the widget.
 
@@ -64,7 +64,7 @@ export default ({id, direction, value, maxValue, imagePrefix, spacing, color, vi
 
     }
 
-    //console.log(`${_root.getElementById('barMaskRect').width}`)
+    // Set the mask (if any)
     const barMaskRect = _root.getElementById('barMaskRect')
     if (mask) {
       const barMaskImage = _root.getElementById('barMaskImage')
