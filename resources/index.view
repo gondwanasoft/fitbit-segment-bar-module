@@ -1,0 +1,9 @@
+<svg>
+
+  <use id="segSteps"  href="#segmentBar10" x="10%"      y="10%" />
+  <use id="segPower"  href="#segmentBar10" x="90%-100" y="10%" />
+  <use id="segActive" href="#segmentBar10" x="10%"      y="90%-19" />
+  <use id="segDist"   href="#segmentBar10" x="90%-40"  y="90%-110" />
+  <use id="segHeart"  href="#segmentBar10" x="50%-75"  y="50%-50" />
+
+</svg>
