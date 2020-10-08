@@ -28,4 +28,13 @@ battery.addEventListener('change', () => {
     segHeart.value = val
 })
 
-// TODO 4 convert to SDK 5 and test on hardware
+/*class extended extends segSteps { // TODO 1 remove test code
+  constructor() {}
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+let myExtended = new extended()
+myExtended.speak()*/
+
+// TODO 4 test on hardware
