@@ -106,6 +106,7 @@ dist
 # Custom
 .zip
 build/
+*.docx
 
 # Backup
 backup.bat

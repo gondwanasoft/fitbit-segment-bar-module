@@ -2,8 +2,8 @@
   <defs>
     <link rel="stylesheet" href="styles.css" />
     <link rel="import" href="/mnt/sysassets/system_widget.defs" />
-    <!-- Import segmentBar styles and GUI -->
+    <!-- Import segmentBar styles and elements -->
     <link rel="stylesheet" href="segment-bar/styles.css" />
-    <link rel="import" href="segment-bar/index.gui" />
+    <link rel="import" href="segment-bar/index.view" />
   </defs>
 </svg>

@@ -1,7 +1,7 @@
 import document from 'document'
 import * as fs from 'fs'
 
-export default ({id, direction, value, maxValue, imagePrefix, spacing, color, visibility, mask}) => {
+export default ({id, direction, value, maxValue, imagePrefix, spacing, color, visibility}) => {
 
   // The constants and variables declared below are not returned, so they're not directly accessible outside of the widget.
 
@@ -64,18 +64,6 @@ export default ({id, direction, value, maxValue, imagePrefix, spacing, color, vi
 
     }
 
-    // Set the mask (if any)
-    const barMaskRect = _root.getElementById('barMaskRect')
-    if (mask) {
-      const barMaskImage = _root.getElementById('barMaskImage')
-      barMaskImage.href = `segment-bar/masks/${mask}.png`
-      barMaskImage.style.display = 'inline'
-      barMaskRect.style.display = 'none'
-    } else {    // no mask
-      barMaskRect.width = _direction === 'left' || _direction === 'right' ? _dimensions.width * 10 + _spacing * 9 : _dimensions.width
-      barMaskRect.height = _direction === 'left' || _direction === 'right' ? _dimensions.height : _dimensions.height * 10 + _spacing * 9
-    }
-
     _redraw()
 
   }
@@ -119,8 +107,10 @@ export default ({id, direction, value, maxValue, imagePrefix, spacing, color, vi
 
   _initialise()
 
-  // The code below adds widget-specific members to the root element. Because the root element is returned, these members will be publicly accessible.
-  // They therefore comprise the widget's interface or API (in conjunction with the interfaces implemented by Fitbit on the root element).
+  // The code below adds widget-specific members to the _root element. Because the root _element is returned, these members will be publicly accessible.
+  // They therefore comprise the widget's interface or API (in conjunction with the interfaces implemented by Fitbit on the _root element).
+
+  // getters and setters for single-valued properties:
 
   Object.defineProperty(_root, 'value', {  // It may be dangerous to use the property name 'value' because it's already defined on GraphicsElement.
     get: function() {
@@ -133,6 +123,8 @@ export default ({id, direction, value, maxValue, imagePrefix, spacing, color, vi
       _redraw()
     }
   })
+
+  // functions for members that are not suitable for get/set:
 
   _root.setFills = fills => {
     // fills: array of fill strings (one per segment).

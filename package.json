@@ -2,7 +2,7 @@
   "fitbit": {
     "appUUID": "4625e37c-292e-4e58-a337-2ac8bd2c4d77",
     "appType": "app",
-    "appDisplayName": "Segment Class",
+    "appDisplayName": "Segment-Bar Demo",
     "iconFile": "resources/icon.png",
     "wipeColor": "#607d8b",
     "requestedPermissions": [],
@@ -12,7 +12,7 @@
     ],
     "i18n": {
       "en": {
-        "name": "Segment Class"
+        "name": "Segment-Bar demo"
       }
     },
     "defaultLanguage": "en-US"
